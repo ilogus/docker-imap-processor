@@ -32,12 +32,11 @@ RUN docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
     opcache
 
 # Configure opcache for better performance
-RUN echo 'opcache.enable=1' >> /usr/local/etc/php/conf.d/opcache.ini \
-    && echo 'opcache.memory_consumption=128' >> /usr/local/etc/php/conf.d/opcache.ini \
-    && echo 'opcache.interned_strings_buffer=8' >> /usr/local/etc/php/conf.d/opcache.ini \
-    && echo 'opcache.max_accelerated_files=4000' >> /usr/local/etc/php/conf.d/opcache.ini \
-    && echo 'opcache.revalidate_freq=2' >> /usr/local/etc/php/conf.d/opcache.ini \
-    && echo 'opcache.fast_shutdown=1' >> /usr/local/etc/php/conf.d/opcache.ini
+RUN echo 'opcache.enable_cli=1' >> /usr/local/etc/php/conf.d/opcache.ini \
+    && echo 'opcache.memory_consumption=64' >> /usr/local/etc/php/conf.d/opcache.ini \
+    && echo 'opcache.interned_strings_buffer=4' >> /usr/local/etc/php/conf.d/opcache.ini \
+    && echo 'opcache.max_accelerated_files=2000' >> /usr/local/etc/php/conf.d/opcache.ini \
+    && echo 'opcache.validate_timestamps=0' >> /usr/local/etc/php/conf.d/opcache.ini
 
 # Clean up build dependencies
 RUN apk del .build-deps \
