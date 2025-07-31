@@ -48,5 +48,3 @@ WORKDIR /app
 # Create necessary directories
 RUN mkdir -p attachments cache/views \
     && chmod 755 attachments cache/views
-
-ENTRYPOINT ["php"]
