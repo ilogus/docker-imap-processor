@@ -5,7 +5,6 @@ RUN apk add --update --no-cache --virtual .build-deps \
     g++ autoconf make linux-headers \
     openssl-dev \
     libzip-dev \
-    c-client-dev \
     krb5-dev \
     && apk add --update --no-cache \
     openssl \
